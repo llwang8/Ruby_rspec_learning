@@ -11,13 +11,17 @@ def sum (arr)
 	if arr = []
 		sum 
 	else
-		for i in arr
-			sum += i
-		end
+		arr.inject(0) {|total, a| total + a}
 	end
 end
 
-def multiple ()
+def multiple (*arg)
+	result = 1
+	if arg != nil 
+		arg.inject(1) {|a, product| product *= a}
+	else
+		result = 0
+	end
 
 end
 
@@ -27,7 +31,10 @@ end
 
 def factorial (n)
 	result = []
-	while n > 1
+	if n <= 1
+		1
+	else
+		n * factorial(n-1)
 		
 	end
 
