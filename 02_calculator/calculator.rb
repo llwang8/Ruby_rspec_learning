@@ -7,11 +7,10 @@ def subtract (x, y)
 end
 
 def sum (arr)
-	sum = 0
-	if arr = []
-		sum 
+	if arr.empty?
+		0
 	else
-		arr.inject(0) {|total, a| total + a}
+		arr.inject(0) {|total, a| total + a} 
 	end
 end
 
@@ -22,7 +21,6 @@ def multiple (*arg)
 	else
 		result = 0
 	end
-
 end
 
 def power (x, p)
@@ -32,12 +30,10 @@ end
 def factorial (n)
 	result = []
 	if n <= 1
-		1
+		n == 0 ? 0 : 1
 	else
-		n * factorial(n-1)
-		
+		return n * factorial(n-1)		
 	end
-
 end
 
 
