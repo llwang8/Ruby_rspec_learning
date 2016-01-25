@@ -11,6 +11,7 @@ def sum (arr)
 		0
 	else
 		arr.inject(0) {|total, a| total + a} 
+		#numbers.inject(0){|total, number| total+number}
 	end
 end
 
