@@ -5,7 +5,7 @@ class Dictionary
 	end
 
 	def add(name, value=nil)
-		@entries[name] = value
+		entries[name] = value
 	end
 
 	def keywords
