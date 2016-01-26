@@ -1,6 +1,14 @@
 class Temperature
 	attr_accessor :degree_fahrenhait, :degree_celsius
-	
+
+	def initialize(options={})
+		if options(:f)
+			@degree_fahrenhait = options[:f] 
+		elsif options(:c)
+			@degree_celsius = options[:c] 
+		end
+	end
+
 	def self.from_celsius degree_celsius
 		new(:c => degree_celsius)
 	end
@@ -9,21 +17,12 @@ class Temperature
 		new(:f => degree_fahrenhait)
 	end
 
-	def initialized (h)
-		#if h.length == 1 && h.first.is_a? (Hash)
-			@degree_fahrenhait = option[:f] || option[:c] * (9.0/5.0) + 32
-			@degree_celsius = hash[:c] || (option[:f] - 32.0) * (5.0 / 9.0)
-		#end
-	end
-
-
 	def in_fahrenhait(thash)
-		@degree_fahrenhait = option[:f] || ctof(option[:c])
-
+		puts @degree_fahrenhait = thash[:f] || ctof(thash[:c])
 	end
 
 	def in_celsius(thash)
-		@degree_celsius = option[:c] || ftoc(option[:f])
+		puts @degree_celsius = thash[:c] || ftoc(thash[:f])
 	end
 
 	def ftoc(f)
@@ -47,5 +46,9 @@ class Fahrenheit < Temperature
 	end
 end
 
+Temperature.new(:f=> 50).in_fahrenhait
+Temperature.new({:f=> 32}).in_celsius
+Temperature.new({:c=> 50}).in_fahrenhait
+Temperature.new({:c=> 0}).in_celsius
 
 
