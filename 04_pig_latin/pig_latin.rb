@@ -1,14 +1,15 @@
 
 def translateword(word)
-	case word.downcase
-	when /^([aeiouy])/ #test for leading vowel
+	case word
+	when /^([aeiouy])/i #test for leading vowel
 		word.concat("ay")
-	when /^(qu+)(.*)/ #test for "qu"
+	when /^(qu+)(.*)/i #test for "qu"
 		$2 + $1 + "ay"
-	when /^([^aeiouy]+)(.*)/ #test for leading consonant
+	when /^([^aeiouy]+)(.*)/i #test for leading consonant
 		$2 + $1 + "ay"
-	when /^([^aeiouy]qu+)(.*)/ #test for leading consonant + "qu"  (not working?)
-		puts $2 + $1 + "ay"
+	#when /^([^aeiouy])([qu])(.*)/ #test for leading consonant + "qu"  (not working?)
+	when /^([^aeiouy]qu+){,3}(.*)/i	
+		$2 + $1 + "ay"
 	else
 		word
 	end

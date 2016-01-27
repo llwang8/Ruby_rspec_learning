@@ -1,12 +1,21 @@
 class Dictionary
+	attr_accessor :entries
 
-	def entries 
-		@entries ||= {}
+	def initialize
+		@entries = {}
 	end
 
-	def add(name, value=nil)
-		entries[name] = value
+	def entries
+		@entries
 	end
+
+	def add name, value = nil
+    	entries[name] = value
+  	end
+
+	#def add(options = {})
+	#	entries.inject options
+	#end
 
 	def keywords
 		@entries.keys.sort

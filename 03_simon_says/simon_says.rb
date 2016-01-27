@@ -1,25 +1,26 @@
 #needs Rspec testing to pass
 
 	def echo(msg)
-		puts msg
+		msg
 	end
 
 
 	def shout(msg)
-		puts "#{msg.upcase}"
+		msg.upcase
 	end
 
-	def repeat(msg, n)
-		n.timed {print "msg"}
-
+	def repeat(msg, n=2)
+		str = []
+		n.times {str << msg}
+		return str.join(" ")
 	end
 
 	def start_of_word(msg, n)
-		result = " "
+		result = ""
 		if msg == " "
 			result
 		else
-			result = msg.slice(0..1)
+			result = msg.slice(0..n-1)
 		end
 	end
 
@@ -32,18 +33,18 @@
 	end
 
 	def titleize(msg)
-		short = ["a", "an", "the", "at", "by", "for", "in", "of", "on", "to", "up", "and", "as", "but", "or", "nor"]
+		short = ["a", "an", "the", "at", "by", "for", "in", "of", "on", "to", "up", "and", "as", "but", "or", "nor", "over" ]
 
-		if msg != " "
+		if msg == nil
 			nil
 		else
-			arr = []
-			arr = msg.split(" ")
-			arr[0].capitalized!
-			(1..arr.length-1).each do |a|
-				short.include?(a) ? a : a.capitalized!
+			words = []
+			words = msg.split(" ")
+			words.map do |word|
+				short.include?(word) ? word : word.capitalize!
 			end
-			arr.join(" ")
+			words.first.capitalize!
+			words.join(" ")
 		end
 	end
 

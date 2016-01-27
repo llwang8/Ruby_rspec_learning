@@ -1,22 +1,30 @@
 class Array
 
-	def sum(*arr)
-		arr.inject(0, :+) {|sum, a| sum + a}
-	end
-
-	def square(arr)
-		if arr.empty
-			[]
-		else
-			arr.map {|a| a ** 2}
+	def sum
+	#	arr.inject(0, :+) do  |sum, a| 
+	#		sum + a 
+	#	end
+		result = 0
+		self.each do |num|
+			result += num
 		end
+		result
 	end
 
-	def square(arr)!
-		arr.map! {|a| a ** 2}
+	def square
+		#if arr.empty
+		#	[]
+		#else
+			map {|a| a ** 2}
+		#end
+	end
+
+	def square!
+		map! {|a| a ** 2}
 	end
 
 end
 
 
+#puts Array.new.sum([1,2,4])
 
